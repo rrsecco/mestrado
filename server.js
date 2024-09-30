@@ -34,7 +34,7 @@ const verificarAuth = function(req, res, next){
 
 // Configuração da conexão com o banco de dados
 const pool = mysql.createPool({
-    host: process.env.HOST,
+    host: process.env.DBHOST,
     user: process.env.USER,
     password: process.env.PASSWORD, // Substitua pela sua senha do banco de dados
     database: process.env.DATABASE,
