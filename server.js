@@ -23,8 +23,8 @@ app.use(session({
 const verificarAuth = function(req, res, next){
     if(req.session.auth == false)
     {
-        console.log('Não autorizado')
-        res.sendFile(path.join(__dirname,"/views/index.html"))
+        console.log('Não autorizado');
+        res.redirect('/')
     }
     else
     {
@@ -93,6 +93,9 @@ const storage = multer.diskStorage({
 });
 const mw_upload = multer({ storage: storage });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname,"/views/index.html"))
+})
 
 // Rota para editar a tabela 'quiz'
 app.put('/api/edit/quiz/:id', [verificarAuth, mw_upload.single('arquivo')], async (req, res) => {
@@ -252,14 +255,14 @@ app.post('/api/intranet/login/', async (req, res) => {
             [user, password]
         );
 
-        console.log(rows)
+       
 
         if (rows.length > 0) {
             // Login bem-sucedido
             req.session.auth = true
             req.session.save(() => console.log("Cookie Auth"))
             //res.status(200).json({ message: 'Login bem-sucedido!' });
-            res.redirect("https://pudim.com.br")
+            res.redirect("https://rrsecco.github.io/intranet/")
         } else {
             // Credenciais inválidas
             res.status(401).json({ message: 'Email ou senha incorretos.' });
