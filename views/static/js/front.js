@@ -28,7 +28,7 @@ document.querySelector('.buttonStart').addEventListener('click', async () => {
 
         if (response.ok) {
             console.log("Login bem-sucedido")
-            // Adicionar ação depois
+            location.href = "https://rrsecco.github.io/intranet/"
         } else {
             let errorData = await response.json();
             console.error("Erro ao fazer login: ", errorData.message);

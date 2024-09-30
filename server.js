@@ -261,8 +261,8 @@ app.post('/api/intranet/login/', async (req, res) => {
             // Login bem-sucedido
             req.session.auth = true
             req.session.save(() => console.log("Cookie Auth"))
-            //res.status(200).json({ message: 'Login bem-sucedido!' });
-            res.redirect("https://rrsecco.github.io/intranet/")
+            res.status(200).json({ message: 'Login bem-sucedido!' });
+           
         } else {
             // Credenciais inválidas
             res.status(401).json({ message: 'Email ou senha incorretos.' });
