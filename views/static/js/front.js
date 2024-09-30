@@ -18,7 +18,7 @@ document.querySelector('.buttonStart').addEventListener('click', async () => {
     clearInfos();
 
     try {
-        let response = await fetch(`http://localhost:3000/api/intranet/login/`, {
+        let response = await fetch(`https://web-c391urlhqs1y.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/intranet/login/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

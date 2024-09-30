@@ -258,8 +258,8 @@ app.post('/api/intranet/login/', async (req, res) => {
             // Login bem-sucedido
             req.session.auth = true
             req.session.save(() => console.log("Cookie Auth"))
-            res.status(200).json({ message: 'Login bem-sucedido!' });
-            console.log('Login bem-sucedido!');
+            //res.status(200).json({ message: 'Login bem-sucedido!' });
+            res.redirect("https://pudim.com.br")
         } else {
             // Credenciais inválidas
             res.status(401).json({ message: 'Email ou senha incorretos.' });
@@ -434,5 +434,5 @@ app.delete('/api/delete_item/:table/:id', verificarAuth, async (req, res) => {
 
 // Inicia o servidor
 app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`Servidor rodando em http://*:${PORT}`);
 });
