@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static("views/static"))
+app.use(express.static("uploads"))
 
 app.use(session({
     secret: 'pdagame_hh2ha0s32',
